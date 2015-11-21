@@ -3,6 +3,86 @@
 body {
   padding-top: 50px;
 }
+/*
+  Code Added by AARTICIANPC-DEV
+  Date: 21-11-2015;
+ */
+.navbar-inverse {
+    background-color: #D00000;
+    border-color: #D00000;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a{
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret{
+      border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.navbar-inverse .navbar-nav li:hover{
+   background-color: #B31919;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus{
+  background-color: #B31919;
+}
+
+
+.img-section img{
+
+  width: 100%;
+  height:auto;
+}
+.img-section,.text{
+  display: inline;
+}
+
+.media .media-left {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 10px;
+}
+.media .media-body {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+.text p {
+    line-height: 37px;
+    font-size: 25px;
+    text-align: center;
+    padding: 15px;
+    color: #D00000;
+}
+.text-black p{
+  padding: 20px; 
+  color: #444;
+  font-size: 25px;
+  text-align: center;
+  line-height: 30px;
+}
+.row{
+  margin-bottom: 25px;
+}
+.bg-tree{
+    background-color: #e5e5e5;
+    margin-top: 25px;
+    padding: 15px;
+    display: table-cell;
+    border-radius: 5px;
+}
+.bg-tree h2{
+      margin-bottom: 30px;
+}
+/* 
+  Code Added by AARTICIANPC-DEV Ends  here.
+*/
 
 .starter-template {
   padding: 40px 15px;
