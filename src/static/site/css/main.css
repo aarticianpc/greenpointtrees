@@ -1,15 +1,27 @@
 @import "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
 
-body {
+/*body {
   padding-top: 50px;
-}
+}*/
 /*
   Code Added by AARTICIANPC-DEV
   Date: 21-11-2015;
  */
+body {
+  background: url("/static/site/img/body-bg.jpg") no-repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+a {
+  transition: background,opacity 0.4s ease;
+  -moz-transition: background,opacity 0.4s ease;
+  -webkit-transition: background,opacity 0.4s ease;
+}
 .navbar-inverse {
-    background-color: #D00000;
-    border-color: #D00000;
+  background-color: #D00000;
+  border-color: #D00000;
+  border-radius: 0;
 }
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-nav > li > a{
@@ -17,8 +29,8 @@ body {
 }
 
 .navbar-inverse .navbar-nav > .dropdown > a .caret{
-      border-top-color: #fff;
-    border-bottom-color: #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
 }
 
 .navbar-inverse .navbar-nav li:hover{
@@ -71,14 +83,64 @@ body {
   margin-bottom: 25px;
 }
 .bg-tree{
-    background-color: #e5e5e5;
-    margin-top: 25px;
-    padding: 15px;
-    display: table-cell;
-    border-radius: 5px;
+  background-color: #e5e5e5;
+  margin-top: 25px;
+  padding: 15px;
+  display: table-cell;
+  border-radius: 5px;
 }
 .bg-tree h2{
-      margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+  display: none;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 200px;
+  min-width: 200px;
+  background: rgba(208, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  color: #FFF;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 100;
+}
+.sidebar .list-group-item.active, 
+.sidebar .list-group-item.active:hover, 
+.sidebar .list-group-item.active:focus,
+.sidebar .list-group-item:hover, 
+.sidebar .list-group-item:focus {
+  background-color: #B32020;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.sidebar .list-group-item {
+  color: #FFF;
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border-color: rgba(255, 255, 255, 0.5);
+  transition: background 0.4s ease;
+  -moz-transition: background 0.4s ease;
+  -webkit-transition: background 0.4s ease;
+}
+.toggle-sidebar-btn {
+  border: 4px solid #FFF;
+  border-right: none;
+  box-shadow: 0 0 0 1px #000;
+  opacity: 0.5;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+}
+.toggle-sidebar-btn:hover {
+  opacity: 0.8;
 }
 /* 
   Code Added by AARTICIANPC-DEV Ends  here.
@@ -115,6 +177,7 @@ body {
     -webkit-background-size: cover;
     background-size: cover;
     color: #f5f5f5;
+    margin-bottom: 0;
 }
 
 .corporate-jumbo .well {

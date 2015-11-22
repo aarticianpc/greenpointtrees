@@ -9,6 +9,10 @@
   {% include "_navbar.html" with active_link="home" %}
 {% endblock %}
 
+{% block floating-sidebar %}
+  {% include "_sidebar.html" with active_link="home" %}
+{% endblock %}  
+
 {% block navbar-right %}
   {% if not user.is_authenticated %}
     {# {% crispy signin_form %} #}
@@ -17,28 +21,29 @@
   {% endif %}
 {% endblock %}
 
-{% block container %}
-  <div class="jumbotron jumbotron-carousel corporate-jumbo">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-8">
-          <h1>{% include "_brandname.html" %}</h1>
-          <p>Best Quality Christmas Trees & Greens in NYC</p>
-          <p>Greenpoint Trees LLC Home Delivery Christmas Trees</p>
-        </div>
-       <!-- <div class="col-md-4 col-sm-4">
-         {# {% if not user.is_authenticated %} #}
-            <div class="span3 well">
-              <legend>Create an Account</legend>
-             {# {% crispy signup_form %} #}
-            </div>
-          {# {% endif %} #} -->
-
-        </div>
+{% block jumbo-tron %}
+<div class="jumbotron jumbotron-carousel corporate-jumbo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8">
+        <h1>{% include "_brandname.html" %}</h1>
+        <p>Best Quality Christmas Trees & Greens in NYC</p>
+        <p>Greenpoint Trees LLC Home Delivery Christmas Trees</p>
       </div>
-    </div>
+     <!-- <div class="col-md-4 col-sm-4">
+       {# {% if not user.is_authenticated %} #}
+          <div class="span3 well">
+            <legend>Create an Account</legend>
+           {# {% crispy signup_form %} #}
+          </div>
+        {# {% endif %} #} 
+        </div>-->
+      </div>
   </div>
+</div>
+{% endblock %}
 
+{% block container %}
    <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -112,15 +117,17 @@
       </div>
     
       <div class="row">
-        <div class="bg-tree">
-            <div class="col-md-8">
-              <h2>GO GREEN, GET REAL! The Eco Friendly Choice</h2>
-              <p>"Each holiday season, shoppers find themselves confronted with a choice: celebrate with a fresh, real tree, or one that is artificial plastic or aluminum. What most people don't realize is that the best choice has always been the traditional and natural choice - a Real Christmas Tree."</p>
-            </div>
-            <div class="col-md-4 text-center">              
+        <div class="col-xs-12">
+          <div class="bg-tree">
+              <div class="col-md-8">
+                <h2>GO GREEN, GET REAL! The Eco Friendly Choice</h2>
+                <p>"Each holiday season, shoppers find themselves confronted with a choice: celebrate with a fresh, real tree, or one that is artificial plastic or aluminum. What most people don't realize is that the best choice has always been the traditional and natural choice - a Real Christmas Tree."</p>
+              </div>
+              <div class="col-md-4 text-center">              
                 <img src="static/site/img/realtree.png" alt="">              
-            </div>            
-        </div>     
+              </div>            
+          </div>
+        </div>       
 
       </div>
 

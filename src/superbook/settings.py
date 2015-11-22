@@ -110,4 +110,5 @@ MESSAGE_TAGS = {
 # Django Debug Toolbar
 if DEBUG:
     INSTALLED_APPS += (
-        'debug_toolbar.apps.DebugToolbarConfig',)
+        #'debug_toolbar.apps.DebugToolbarConfig',
+    )
