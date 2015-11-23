@@ -28,7 +28,8 @@ if env_file.is_file():
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Raises ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'abcxyzdndndnd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
