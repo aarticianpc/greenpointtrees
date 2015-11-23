@@ -15,13 +15,13 @@ TEMPLATE_DIRS = [str(BASE_DIR / 'templates'), ]
 STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
 
 # Use 12factor inspired environment variables or from a file
-import environ
-env = environ.Env()
-# Ideally move env file should be outside the git repo
-# i.e. BASE_DIR.parent.parent
-env_file = BASE_DIR.parent / 'local.env'
-if env_file.is_file():
-    environ.Env.read_env(str(env_file))
+# import environ
+# env = environ.Env()
+# # Ideally move env file should be outside the git repo
+# # i.e. BASE_DIR.parent.parent
+# env_file = BASE_DIR.parent / 'local.env'
+# if env_file.is_file():
+#     environ.Env.read_env(str(env_file))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
