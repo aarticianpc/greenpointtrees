@@ -81,3 +81,6 @@ class ServiceView(generic.TemplateView):
 
 class ContactView(generic.TemplateView):
     template_name = "contact.html"
+
+class AboutView(generic.TemplateView):
+    template_name = "about.html"

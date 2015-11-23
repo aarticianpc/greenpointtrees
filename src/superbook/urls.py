@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from accounts.views import SignInAndSignUp, LogoutView, ProductView, ServiceView, ContactView
+from accounts.views import SignInAndSignUp, LogoutView, ProductView, ServiceView, ContactView, AboutView
 
 urlpatterns = patterns(
     '',
@@ -12,6 +12,8 @@ urlpatterns = patterns(
         name='services'),
 	url(r'^contact/$', ContactView.as_view(),
         name='contact'),
+     url(r'^about/$', AboutView.as_view(),
+        name='about'),
     url(r'^accounts/logout$', LogoutView.as_view(),
         name='logout'),
     url(r'^admin/', include(admin.site.urls)),
