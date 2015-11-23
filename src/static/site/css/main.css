@@ -48,19 +48,46 @@ a {
 .navbar-inverse .navbar-nav > .open > a:focus{
   background-color: #B31919;
 }
+.navbar-brand {
+  position:relative;
+  padding-left: 60px;
+}
+.navbar-brand img {
+  position: absolute;
+  max-height: 100%;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+}
 
+.img-section {
+  position: relative;  
+}
+.img-section.with-text h2 {
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  margin:0;
+  font-size: 22px;
+  color: #008000;
+}
 
 .img-section img{
-
   width: 100%;
   height:auto;
+  position: relative;
 }
-.img-section,.text{
+
+.text{
   display: inline;
 }
+
 .media-body h2{
   color: #008000;
 }
+
 .media .media-left {
     display: table-cell;
     vertical-align: top;
