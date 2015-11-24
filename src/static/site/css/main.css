@@ -212,9 +212,9 @@ a {
 
 .bg-product-white{
   background-color:#fff;
-      display: table;
-    width: 100%;
-    min-height: 280px; 
+  display: table;
+  width: 100%;
+  height: 280px; 
 }
 .package .img-section{
     width: 50%;
