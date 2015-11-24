@@ -217,7 +217,7 @@ a {
     min-height: 280px; 
 }
 .package .img-section{
-        width: 50%;
+    width: 50%;
     display: table-cell;
     height: 100%;
     background-size: cover;
