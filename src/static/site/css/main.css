@@ -208,6 +208,52 @@ a {
   font-size: 15px;
   line-height: 1.8;
 }
+
+
+.bg-product-white{
+  background-color:#fff;
+      display: table;
+    width: 100%;
+    min-height: 280px; 
+}
+.package .img-section{
+        width: 50%;
+    display: table-cell;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.package .product-body{
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 15px;
+    padding-bottom: 60px;
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;  
+}
+.package .product-body h3{
+  color: #D00000;
+  margin: 0;
+  margin-bottom: 5px; 
+}
+.product-box .product-btn{
+  position: absolute;
+  bottom: 15px;
+}
+.product-box .btn{
+  border: 0;
+  border-radius: 0;
+  color: #FFF;
+  background-color: #008000;
+}
+.product-box .btn:hover{
+  background-color: #D00000;
+  transition:1s;  
+}
+
+
 /* 
   Code Added by AARTICIANPC-DEV Ends  here.
 */
