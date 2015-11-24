@@ -13,6 +13,23 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
 }
+.ball {
+  -webkit-background-size: 50px;
+  background-size: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute; 
+}
+.ball-orange {
+  background-image: url("/static/site/img/ball-orange.png");
+  right: 70px;
+  top: -20px;
+}
+.ball-green {
+  background-image: url("/static/site/img/ball-green.png");
+  bottom: -15px;
+  right: 35px;
+}
 a {
   transition: background,opacity 0.4s ease;
   -moz-transition: background,opacity 0.4s ease;
@@ -66,12 +83,13 @@ a {
   position: relative;  
 }
 .img-section.with-text h2 {
-  position: absolute;
-  top: 20%;
-  left: 8%;
-  margin:0;
+  color: #fff;
   font-size: 22px;
-  color: #008000;
+  font-weight: bold;
+  left: 27%;
+  margin: 0;
+  position: absolute;
+  top: 29%;
 }
 
 .img-section img{
@@ -208,6 +226,52 @@ a {
   font-size: 15px;
   line-height: 1.8;
 }
+
+
+.bg-product-white{
+  background-color:#fff;
+  display: table;
+  width: 100%;
+  height: 280px; 
+}
+.package .img-section{
+    width: 50%;
+    display: table-cell;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.package .product-body{
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 15px;
+    padding-bottom: 60px;
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;  
+}
+.package .product-body h3{
+  color: #D00000;
+  margin: 0;
+  margin-bottom: 5px; 
+}
+.product-box .product-btn{
+  position: absolute;
+  bottom: 15px;
+}
+.product-box .btn{
+  border: 0;
+  border-radius: 0;
+  color: #FFF;
+  background-color: #008000;
+}
+.product-box .btn:hover{
+  background-color: #D00000;
+  transition:1s;  
+}
+
+
 /* 
   Code Added by AARTICIANPC-DEV Ends  here.
 */
