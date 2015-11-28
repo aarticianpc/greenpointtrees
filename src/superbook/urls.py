@@ -4,8 +4,10 @@ from accounts.views import SignInAndSignUp, LogoutView, ProductView, ServiceView
 
 urlpatterns = patterns(
     '',
+    url(r'^home.html$', SignInAndSignUp.as_view(template_name='home.html'),
+        name='home.html'),   
     url(r'^$', SignInAndSignUp.as_view(template_name='home.html'),
-        name='home'),
+        name='home'),   
     url(r'^product/$', ProductView.as_view(),
         name='product'),
     url(r'^services/$', ServiceView.as_view(),
