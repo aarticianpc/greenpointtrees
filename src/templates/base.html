@@ -45,7 +45,7 @@
           </button>
           <a class="navbar-brand" href="{% url 'home' %}">
             {% block navbar-brand %}
-              <img src="{% static 'site/img/christmas-tree-abstract.png' %}" alt="logo">
+              <img src="{% static 'site/img/logo.png' %}" alt="logo">
               {% include "_brandname.html" %}
             {% endblock %}
           </a>
@@ -110,12 +110,13 @@
             <div class="footer">
         <div class="row">
           <div class="col-lg-6">
-              <p>&copy; Company {% now 'Y' %}</p>
+              <p>&copy; {% include "_brandname.html" %} <img src="{% static 'site/img/logo.png' %}" style="height:30px;" alt="logo"> {% now 'Y' %}</p>
+              <p> <a href="http://alltechstar.com">alltechstar.com</a> </p>
           </div>
           <div class="col-lg-6 text-right">
             Connect with us on
-            <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
-            <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.greenpointtrees.nyc/"><i class="fa fa-facebook"></i> Facebook</a> or
+            <a href="https://twitter.com/home?status=http%3A//www.greenpointtrees.nyc/"><i class="fa fa-twitter"></i> Twitter</a>
           </div>
         </div>
             </div>
