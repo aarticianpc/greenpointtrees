@@ -78,7 +78,9 @@ a {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
 }
-
+.carousel-image-with-full-width img {
+  width: 100%;
+}
 .img-section {
   position: relative;  
 }
