@@ -8,6 +8,7 @@
     <meta name="description" content="{% block description %}{% endblock description %}">
     <meta name="author" content="Arun Ravindran">
     <link rel="shortcut icon" href="{% static 'site/ico/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'animation/css/libs/animate.css' %}">
 
     <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
 
@@ -29,12 +30,12 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body id="{% block page-id %} {% endblock %}" class="{% block page-class %} {% endblock %}">
     {% block jumbo-tron %}{% endblock %}
     {% block navbar %}
     <div class="navbar navbar-inverse" role="navigation">
-      <div class="ball ball-orange"></div>
-      <div class="ball ball-green"></div>
+      <div class="ball ball-orange wow tada" data-wow-duration="1.5s" data-wow-iteration="infinite"></div>
+      <div class="ball ball-green wow tada" data-wow-duration="1.5s" data-wow-iteration="infinite"></div>
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -131,5 +132,9 @@
     {% block scripts %}
     {% endblock scripts %}
     <script src="{% static 'site/js/global.js' %}"></script>
+    <script src="{% static 'animation/dist/wow.min.js' %}"></script>
+    <script>
+      new WOW().init();
+    </script>
   </body>
 </html>

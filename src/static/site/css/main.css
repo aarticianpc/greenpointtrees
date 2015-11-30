@@ -13,6 +13,9 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
 }
+.wow-animate-wrapper {
+  overflow-x: hidden;
+}
 .ball {
   -webkit-background-size: 50px;
   background-size: 50px;

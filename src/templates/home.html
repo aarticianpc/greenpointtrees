@@ -21,11 +21,14 @@
   {% endif %}
 {% endblock %}
 
+{% block page-id %} home {% endblock %}
+{% block page-class %} wow-animate-wrapper {% endblock %}
+
 {% block jumbo-tron %}
 <div class="jumbotron jumbotron-carousel corporate-jumbo" style="background-image:url(/static/site/img/home-banner.jpg); no-repeat center center;">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-8">
+      <div class="col-md-8 col-sm-8 wow fadeInUp" data-wow-duration="2s">
         <h1>{% include "_brandname.html" %}</h1>
         <p>Best Quality Christmas Trees & Greens in NYC</p>
         <p>Greenpoint Trees LLC Home Delivery Christmas Trees</p>
@@ -48,7 +51,7 @@
    <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="media">
+          <div class="media wow bounceInLeft" data-wow-duration="2s">
             <div class="media-left">
               <a href="#">
                 <img class="media-object" src="static/site/img/santa.png" alt="santa.png">
@@ -59,20 +62,20 @@
             </div>
           </div>         
         </div>
-        <div class="col-md-6">
-        <div class="text ">
+        <div class="col-md-6 wow flash" data-wow-duration="2s">
+        <div class="text">
             <p> <strong>Fresh Cut Christmas Trees, Wreaths and Greens since 1990. Straight from the grower to your home or business, set them up and decorate them for you. We are your full service Christmas Tree Company the Best in NYC. </strong></p>
         </div>          
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="img-section pull-left">
+          <div class="img-section pull-left wow bounceIn" data-wow-duration="1s">
               <img src="static/site/img/tree_transparent.png" alt="">
           </div>
                  
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 wow bounceInRight" data-wow-duration="2s">
             <div id="carousel-example-generic" class="carousel-image-with-full-width carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
@@ -111,7 +114,7 @@
     
       <div class="row">
         <div class="col-xs-12">
-          <div class="bg-tree">
+          <div class="bg-tree wow fadeInUp" data-wow-duration="2s">
               <div class="col-md-8">
                 <h2>GO GREEN, GET REAL! The Eco Friendly Choice</h2>
                 <p>"Each holiday season, shoppers find themselves confronted with a choice: celebrate with a fresh, real tree, or one that is artificial plastic or aluminum. What most people don't realize is that the best choice has always been the traditional and natural choice - a Real Christmas Tree."</p>

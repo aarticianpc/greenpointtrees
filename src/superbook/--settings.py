@@ -1,11 +1,17 @@
 """
 Django settings for superbook project.
+
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/topics/settings/
+
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
+import os
 
+OSCAR_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from oscar import OSCAR_MAIN_TEMPLATE_DIR
+#TEMPLATE_DIRS = TEMPLATE_DIRS + (OSCAR_MAIN_TEMPLATE_DIR,)
 # Build paths inside the project like this: BASE_DIR / "directory"
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,8 +48,10 @@ if "celery" in sys.argv[0]:
     DEBUG = False
 
 # Application definition
+from oscar import get_core_apps
+from oscar.defaults import *
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django_admin_bootstrapped',
     'crispy_forms',
 
@@ -51,9 +59,15 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-)
+    'django.contrib.flatpages',
+    'compressor',
+    'widget_tweaks',
+] + get_core_apps()
+
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,21 +77,62 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'oscar.apps.basket.middleware.BasketMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'oscar.apps.customer.auth_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'superbook.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(OSCAR_BASE_DIR, 'templates'),
+            OSCAR_MAIN_TEMPLATE_DIR
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.promotions.context_processors.promotions',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.apps.customer.notifications.context_processors.notifications',
+                'oscar.core.context_processors.metadata',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'superbook.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'greentreestore',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}"""
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in
     # os.environ
     'default': env.db(),
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
@@ -108,5 +163,19 @@ MESSAGE_TAGS = {
 # Django Debug Toolbar
 if DEBUG:
     INSTALLED_APPS += (
-       # 'debug_toolbar.apps.DebugToolbarConfig',
-       )
+        #'debug_toolbar.apps.DebugToolbarConfig',
+    )
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr',
+        'INCLUDE_SPELLING': True,
+    },
+}

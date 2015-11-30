@@ -21,11 +21,14 @@
   {% endif %}
 {% endblock %}
 
+{% block page-id %} home {% endblock %}
+{% block page-class %} wow-animate-wrapper {% endblock %}
+
 {% block jumbo-tron %}
 <div class="jumbotron jumbotron-carousel corporate-jumbo" style="background-image:url(/static/site/img/product-banner.jpg); no-repeat center center;">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-8">
+      <div class="col-md-8 col-sm-8 wow fadeInUp" data-wow-duration="2s">
         <h1>{% include "_brandname.html" %}</h1>
         <p>Best Quality Christmas Trees & Greens in NYC</p>
         <p>Greenpoint Trees LLC Home Delivery Christmas Trees</p>
@@ -48,11 +51,11 @@
 <div class="container">
   <div class="row">
       <div class="col-md-8">
-        <div class="heading box">
+        <div class="heading box wow fadeInLeft" data-wow-duration="2s">
           <p> <strong>Call to Place Your Order 1-800-399-7796 </strong></p>
         </div>
       </div>
-      <div class="col-md-4">        
+      <div class="col-md-4 wow bounceInLeft" data-wow-duration="2s">        
         <img src="/static/site/img/service.png" alt="service">        
       </div>      
    </div>
@@ -61,7 +64,7 @@
 
 <div class="container"> 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 wow fadeInRight" data-wow-duration="2.5s">
       <div class="heading box">
         <p><strong>Greenpoint Trees LLC Home Delivery Christmas Trees</strong></p>
       </div>
@@ -70,7 +73,7 @@
   
   <div class="row package">
     <div class="col-md-10 col-md-offset-1">
-      <div class="product-body text-center">
+      <div class="product-body text-center wow bounceIn" data-wow-duration="2s">
          <h3>FRASER FIR</h3>
          <p>The Fraser fir branches turn slightly upward. They have good form and needle-retention. They are dark blue-green in color. They have a pleasant scent, and excellent shipping characteristics as well.</p>
          <hr>
@@ -84,7 +87,7 @@
 
    <div class="row package">
     <div class="col-md-6">
-      <div class="product-box">
+      <div class="product-box wow bounceInLeft" data-wow-duration="2s">
         <div class="img-section" style="background-image:url(/static/site/img/big-tree.png)" alt="tree"></div>       
         <div class="product-body bg-product-white">
           <h3>Fresh Handmade Fraser Fir Wreaths</h3>
@@ -97,7 +100,7 @@
       </div>  
     </div>   
    <div class="col-md-6">
-      <div class="product-box">
+      <div class="product-box wow bounceInRight" data-wow-duration="2s">
         <div class="img-section" style="background-image:url(/static/site/img/many_other_things.png)" alt="tree"></div>       
         <div class="product-body bg-product-white">
           <h3>Many Other Products are Available</h3>
@@ -120,7 +123,7 @@
 
   <div class="row package">      
     <div class="col-md-6">
-      <div class="product-box bg-product-white">
+      <div class="product-box bg-product-white wow bounceInLeft" data-wow-duration="2s">
         <div class="img-section" style="background-image:url(/static/site/img/product-tree.jpg)" alt="tree"></div>       
         <div class="product-body">
           <h3>#1 $125.00</h3>
@@ -136,7 +139,7 @@
       </div>  
     </div>
      <div class="col-md-6">
-      <div class="product-box bg-product-white">
+      <div class="product-box bg-product-white wow bounceInRight" data-wow-duration="2s">
         <div class="img-section" style="background-image:url(/static/site/img/product-tree.jpg)" alt="tree"></div>       
         <div class="product-body">
           <h3>#2  $180.00</h3>
@@ -156,7 +159,7 @@
 
   <div class="row package">
      <div class="col-md-6">
-      <div class="product-box bg-product-white">
+      <div class="product-box bg-product-white wow bounceInLeft" data-wow-duration="2s">
         <div class="img-section" style="background-image:url(/static/site/img/product-tree.jpg)" alt="tree"></div>       
         <div class="product-body">
           <h3>#3 $500.00</h3>
@@ -173,7 +176,7 @@
       </div>  
     </div>
     <div class="col-md-6">
-        <div class="product-box bg-product-white">
+        <div class="product-box bg-product-white wow bounceInRight" data-wow-duration="2s">
           <div class="img-section" style="background-image:url(/static/site/img/product-tree.jpg)" alt="tree"></div>       
           <div class="product-body">
             <h3>#4 $700.00</h3>
@@ -195,7 +198,7 @@
 
     <div class="row package">
       <div class="col-md-6">
-        <div class="product-box bg-product-white">
+        <div class="product-box bg-product-white wow bounceInLeft" data-wow-duration="2s">
           <div class="img-section" style="background-image:url(/static/site/img/product-tree.jpg)" alt="tree"></div>       
           <div class="product-body">
             <h3>#5 $1,500.00</h3>
@@ -213,7 +216,7 @@
         </div>  
       </div>
        <div class="col-md-6">
-        <div class="product-box bg-product-white">
+        <div class="product-box bg-product-white wow bounceInRight" data-wow-duration="2s">
           <div class="img-section" style="background-image:url(/static/site/img/large-tree.jpg)" alt="tree"></div>       
           <div class="product-body">
             <h3>Extra Large Court Yard Trees Available up to 40 feet</h3> 
