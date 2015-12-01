@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from accounts.views import SignInAndSignUp, LogoutView, ProductView, ServiceView, ContactView, AboutView
-#from oscar.app import application
-
+from oscar.app import application
+from oscarstore import views as oscarstoreview
 urlpatterns = patterns(
     '',
 
@@ -11,7 +11,7 @@ urlpatterns = patterns(
         name='home.html'),
     url(r'^$', SignInAndSignUp.as_view(template_name='home.html'),
         name='home'),   
-    url(r'^product/$', ProductView.as_view(),
+    url(r'^product/$', oscarstoreview.main,
         name='product'),
     url(r'^services/$', ServiceView.as_view(),
         name='services'),
@@ -22,5 +22,5 @@ urlpatterns = patterns(
     url(r'^accounts/logout$', LogoutView.as_view(),
         name='logout'),
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^oscar/', include(application.urls)),
+    url(r'^oscar/', include(application.urls)),
 )

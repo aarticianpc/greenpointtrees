@@ -1,0 +1,375 @@
+@import "//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css";
+
+/*body {
+  padding-top: 50px;
+}*/
+/*
+  Code Added by AARTICIANPC-DEV
+  Date: 21-11-2015;
+ */
+body {
+  background: url("/static/site/img/body-bg.jpg") no-repeat center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.wow-animate-wrapper {
+  overflow-x: hidden;
+}
+.ball {
+  -webkit-background-size: 50px;
+  background-size: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute; 
+}
+.ball-orange {
+  background-image: url("/static/site/img/ball-orange.png");
+  right: 70px;
+  top: -20px;
+}
+.ball-green {
+  background-image: url("/static/site/img/ball-green.png");
+  bottom: -15px;
+  right: 35px;
+}
+a {
+  transition: background,opacity 0.4s ease;
+  -moz-transition: background,opacity 0.4s ease;
+  -webkit-transition: background,opacity 0.4s ease;
+}
+.bg-white{
+    background-color: #fff;
+    border-radius: 10px;
+}
+.navbar-inverse {
+  background-color: #D00000;
+  border-color: #D00000;
+  border-radius: 0;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-nav > li > a{
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret{
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+.navbar-inverse .navbar-nav li:hover{
+   background-color: #B31919;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus{
+  background-color: #B31919;
+}
+.navbar-brand {
+  position:relative;
+  padding-left: 60px;
+}
+.navbar-brand img {
+  position: absolute;
+  max-height: 100%;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+}
+.carousel-image-with-full-width img {
+  width: 100%;
+}
+.img-section {
+  position: relative;  
+}
+.img-section.with-text h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  left: 27%;
+  margin: 0;
+  position: absolute;
+  top: 29%;
+}
+
+.img-section img{
+  width: 100%;
+  height:auto;
+  position: relative;
+}
+
+.text{
+  display: inline;
+}
+
+.media-body h2{
+  color: #008000;
+}
+
+.media .media-left {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 10px;
+}
+.media .media-body {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+.text p {
+    line-height: 37px;
+    font-size: 25px;
+    text-align: center;
+    padding: 15px;
+    color: #D00000;
+}
+.text-black p{
+  padding: 20px; 
+  color: #444;
+  font-size: 25px;
+  text-align: center;
+  line-height: 30px;
+}
+.row{
+  margin-bottom: 25px;
+}
+.bg-tree{
+  background-color: #e5e5e5;
+  margin-top: 25px;
+  padding: 15px;
+  display: table-cell;
+  border-radius: 5px;
+}
+.bg-tree h2{
+  margin-bottom: 30px;
+}
+
+
+.package{
+  margin: 15px 0;
+}
+
+.package .box .btn{
+  text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+  display: none;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 200px;
+  min-width: 200px;
+  background: rgba(208, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  color: #FFF;
+  right: 0;
+  top: 0;
+  height: auto;
+  z-index: 100;
+}
+.sidebar > .row,
+.sidebar > .row .list-group {
+  margin-bottom: 0;
+}
+.sidebar .list-group-item.active, 
+.sidebar .list-group-item.active:hover, 
+.sidebar .list-group-item.active:focus,
+.sidebar .list-group-item:hover, 
+.sidebar .list-group-item:focus {
+  background-color: #B32020;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.sidebar .list-group-item {
+  color: #FFF;
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border-color: rgba(255, 255, 255, 0.5);
+  transition: background 0.4s ease;
+  -moz-transition: background 0.4s ease;
+  -webkit-transition: background 0.4s ease;
+}
+.toggle-sidebar-btn {
+  border: 4px solid #FFF;
+  border-right: none;
+  box-shadow: 0 0 0 1px #000;
+  opacity: 0.5;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+}
+.toggle-sidebar-btn:hover {
+  opacity: 0.8;
+}
+
+.heading p{
+    font-size: 25px;
+    text-align: center;
+}
+.contact-link{
+  font-size: 20px;  
+}
+.contact-link p{  
+  margin-right:12px;
+  display: inline; 
+}
+.contact-link a{
+  display: inline;
+  color:#D00000;
+}
+.box{
+  padding: 20px;
+}
+.contact-text{
+  margin-bottom: 20px; 
+}
+.contact-text p{
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+.bg-product-white{
+  background-color:#fff;
+  display: table;
+  width: 100%;
+  height: 280px; 
+}
+.package .img-section{
+    width: 50%;
+    display: table-cell;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.package .product-body{
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 15px;
+    padding-bottom: 60px;
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;  
+}
+.package .product-body h3{
+  color: #D00000;
+  margin: 0;
+  margin-bottom: 5px; 
+}
+.product-box .product-btn{
+  position: absolute;
+  bottom: 15px;
+}
+.product-box .btn{
+  border: 0;
+  border-radius: 0;
+  color: #FFF;
+  background-color: #008000;
+}
+.product-box .btn:hover{
+  background-color: #D00000;
+  transition:1s;  
+}
+
+
+/* 
+  Code Added by AARTICIANPC-DEV Ends  here.
+*/
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+.alert {
+    margin-bottom: 0;
+}
+
+.help-block {
+    display: none;
+}
+
+.navbar-form {
+    margin-right: 0;
+}
+
+/* Home page styling */
+.corporate-jumbo {
+    
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #f5f5f5;
+    margin-bottom: 0;
+}
+
+.corporate-jumbo .well {
+    background-color: rgba(245, 245, 245, .7);
+}
+
+.corporate-jumbo p, .corporate-jumbo h1 {
+    color: #eee;
+    text-shadow: 0px 0px 2px black;
+}
+
+.corporate-jumbo p {
+    font-weight: 500;
+}
+
+.corporate-jumbo .well legend {
+    color: #333;
+}
+
+.contact-banner {
+    padding: 100px 0;
+    background: #e0e0e0;
+    margin-top: 100px;
+}
+
+.footer a:hover {
+    text-decoration: none;
+}
+
+/* About page styling */
+#sec1 {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJklEQVQIW2NkAIILFy78NzAwYATRjCABZEGwAEwFiA1WBlIOUwkA72gTdDIYVO4AAAAASUVORK5CYII=) repeat;
+}
+
+.text-page {
+    padding: 120px 0;
+}
+
+#map-outer {
+    height: 440px;
+	padding: 40px 20px;
+	margin-bottom: 20px;
+	background-color:#FFF
+}
+
+#map-container {
+    height: 400px
+}
+
+@media all and (max-width: 768px) {
+	#map-outer  { height: 650px }
+}
+
+/* --- */
