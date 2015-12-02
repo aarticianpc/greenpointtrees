@@ -4,14 +4,20 @@ from accounts.views import SignInAndSignUp, LogoutView, ProductView, ServiceView
 from oscar.app import application as oscarapplication
 from paypal.express.dashboard.app import application
 
-
+from django.conf import settings
 from oscarstore import views as oscarstoreview
 urlpatterns = patterns(
     '',
 
+    url(r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT,
+    }),
+
+
    # url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^home.html$', SignInAndSignUp.as_view(template_name='home.html'),
         name='home.html'),
+
     url(r'^$', SignInAndSignUp.as_view(template_name='home.html'),
         name='home'),   
     url(r'^product/$', oscarstoreview.main,
