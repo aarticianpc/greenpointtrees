@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'compressor',
     'widget_tweaks',
+    'paypal',
     #end canhhs
     'django.contrib.admin',
     'django.contrib.auth',
@@ -178,3 +179,17 @@ if DEBUG:
        )
 
 FIXTURE_DIRS = '/fixtures'
+
+
+# PAYPAL_API_USERNAME = 'canhhs91_api1.gmail.com'
+# PAYPAL_API_PASSWORD = 'QS8S7PCTVJPRJVRB'
+# PAYPAL_API_SIGNATURE = 'ArC72r3j1fs1tcJLuAukRJqngnhVA4uWJKg3LbYxGXZE2Kz25txF.myF'
+
+#canhhs
+PAYPAL_API_USERNAME = 'canhhs91-facilitator_api1.gmail.com'
+PAYPAL_API_PASSWORD = 'DPCFFE3J4QRESJNF'
+PAYPAL_API_SIGNATURE = 'AFcWxV21C7fd0v3bYYYRCpSSRl31Ag7zVA2tWWA96x4iGnEEEr7cNvvI'
+PAYPAL_CALLBACK_HTTPS=False
+
+PAYPAL_SANDBOX_MODE=True
+PAYPAL_CURRENCY='USD'

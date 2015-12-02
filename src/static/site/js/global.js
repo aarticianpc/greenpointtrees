@@ -7,4 +7,10 @@ $(window).load(function(){
 		$('.sidebar').show();
 		$('.toggle-sidebar-btn').hide();
 	});
-})
+
+	$('.tlt').textillate();
+
+	$('.tlt').on('inAnimationBegin.tlt', function () {
+  		$(this).show();
+	});
+});

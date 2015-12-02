@@ -16,6 +16,9 @@ body {
 .wow-animate-wrapper {
   overflow-x: hidden;
 }
+.tlt {
+  display: none;
+}
 .ball {
   -webkit-background-size: 50px;
   background-size: 50px;
@@ -111,6 +114,7 @@ a {
   color: #008000;
 }
 
+
 .media .media-left {
     display: table-cell;
     vertical-align: top;
@@ -150,6 +154,12 @@ a {
 }
 .package .box .btn{
   text-align: center;
+}
+.service-van img{
+  margin-top: 60px;
+}
+.heading .box p{
+
 }
 
 /* Sidebar */
@@ -207,8 +217,10 @@ a {
 }
 
 .heading p{
-    font-size: 25px;
+    font-size: 27px;
     text-align: center;
+    color:#008000;
+    font-weight:700; 
 }
 .contact-link{
   font-size: 20px;  

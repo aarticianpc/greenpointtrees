@@ -1,7 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from accounts.views import SignInAndSignUp, LogoutView, ProductView, ServiceView, ContactView, AboutView
-from oscar.app import application
+from oscar.app import application as oscarapplication
+from paypal.express.dashboard.app import application
+
+
 from oscarstore import views as oscarstoreview
 urlpatterns = patterns(
     '',
@@ -22,5 +25,8 @@ urlpatterns = patterns(
     url(r'^accounts/logout$', LogoutView.as_view(),
         name='logout'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^oscar/', include(application.urls)),
+    url(r'^oscar/', include(oscarapplication.urls)),
+    url(r'^oscar/checkout/paypal/', include('paypal.express.urls')),
+    url(r'^oscar/dashboard/paypal/express/', include(application.urls)),
+
 )

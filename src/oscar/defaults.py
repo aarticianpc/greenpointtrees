@@ -49,7 +49,7 @@ OSCAR_STOCK_ALERTS_PER_PAGE = 20
 OSCAR_DASHBOARD_ITEMS_PER_PAGE = 20
 
 # Checkout
-OSCAR_ALLOW_ANON_CHECKOUT = False
+OSCAR_ALLOW_ANON_CHECKOUT = True
 
 # Promotions
 COUNTDOWN, LIST, SINGLE_PRODUCT, TABBED_BLOCK = (
@@ -96,6 +96,16 @@ OSCAR_HIDDEN_FEATURES = []
 
 # Menu structure of the dashboard navigation
 OSCAR_DASHBOARD_NAVIGATION = [
+    {
+        'label': _('PayPal'),
+        'icon': 'icon-globe',
+        'children': [
+            {
+                'label': _('Express transactions'),
+                'url_name': 'paypal-express-list',
+            },
+        ]
+    }, 
     {
         'label': _('Dashboard'),
         'icon': 'icon-th-list',
