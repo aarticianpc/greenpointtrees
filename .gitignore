@@ -54,3 +54,5 @@ tramp
 # Windows
 Thumbs.db
 Desktop.ini
+
+.*/uploads.*

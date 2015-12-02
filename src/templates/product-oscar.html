@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+
+{% block navbar-left %}
+{% include "_navbar.html" with active_link="product" %}
+{% endblock %}
+
+{% block floating-sidebar %}
+{% include "_sidebar.html" with active_link="product" %}
+{% endblock %}
+
+{% block navbar-right %}
+{% if not user.is_authenticated %}
+{# {% crispy signin_form %} #}
+{% else %}
+{{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block page-id %} home {% endblock %}
+{% block page-class %} wow-animate-wrapper {% endblock %}
+
+{% block jumbo-tron %}
+<div class="jumbotron jumbotron-carousel corporate-jumbo" style="background-image:url(/static/site/img/product-banner.jpg); no-repeat center center;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8 wow fadeInUp" data-wow-duration="2s">
+        <h1>{% include "_brandname.html" %}</h1>
+        <p>Best Quality Christmas Trees & Greens in NYC</p>
+        <p>Greenpoint Trees LLC Home Delivery Christmas Trees</p>
+        <p>1-800-399-7796</p>
+      </div>
+     <!-- <div class="col-md-4 col-sm-4">
+       {# {% if not user.is_authenticated %} #}
+          <div class="span3 well">
+            <legend>Create an Account</legend>
+           {# {% crispy signup_form %} #}
+          </div>
+        {# {% endif %} #} 
+      </div>-->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block container %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="heading box wow fadeInLeft" data-wow-duration="2s">
+        <p> <strong>Call to Place Your Order 1-800-399-7796 </strong></p>
+      </div>
+    </div>
+    <div class="col-md-4 wow bounceInLeft" data-wow-duration="2s">        
+      <img src="/static/site/img/service.png" alt="service">        
+    </div>      
+  </div>
+</div>
+
+
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-12 wow fadeInRight" data-wow-duration="2.5s">
+      <div class="heading box">
+        <p><strong>Greenpoint Trees LLC Home Delivery Christmas Trees</strong></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row package">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="product-body text-center wow bounceIn" data-wow-duration="2s">
+       <h3>FRASER FIR</h3>
+       <p>The Fraser fir branches turn slightly upward. They have good form and needle-retention. They are dark blue-green in color. They have a pleasant scent, and excellent shipping characteristics as well.</p>
+       <hr>
+       <h3>Fresh Cut Premium Fraser Fir </h3>
+       <h4>4' to 15' foot </h4>
+       <hr> 
+     </div>
+   </div>
+ </div> 
+ {% for product in products %}
+ <div class="package col-md-6">
+  <div class="product-box wow bounceInLeft" data-wow-duration="2s">
+    <div class="img-section" style="background-image:url(/static/site/img/big-tree.png)" alt="tree"></div>       
+    <div class="product-body bg-product-white">
+      <h3>{{product.title}}</h3>
+      <div>
+        {{product.description|safe}}
+      </div>
+      
+      <div class="product-btn text-center">
+      <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket">
+        {% csrf_token %}
+        {# {% include "partials/form_fields.html" with form=basket_form %} #}
+        <input id="id_quantity" name="quantity" type="hidden" value="1">
+        <button type="submit" class="btn btn-primary btn-lg  btn-add-to-basket"  data-loading-text="Adding...">Ready for sell now <i class="fa fa-shopping-cart"></i></button>
+    </form>
+
+
+        
+      </div> 
+    </div>
+  </div>  
+</div>   
+{% endfor %}
+
+</div>
+</div>
+
+{% endblock container %}
