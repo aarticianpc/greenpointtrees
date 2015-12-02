@@ -23,13 +23,13 @@ OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_DEFAULT_CURRENCY = 'GBP'
 
 # Paths
-OSCAR_IMAGE_FOLDER = 'images/products/%Y/%m/'
-OSCAR_PROMOTION_FOLDER = 'images/promotions/'
+OSCAR_IMAGE_FOLDER = 'static/images/products/%Y/%m/'
+OSCAR_PROMOTION_FOLDER = 'static/images/promotions/'
 OSCAR_DELETE_IMAGE_FILES = True
 
 # Copy this image from oscar/static/img to your MEDIA_ROOT folder.
 # It needs to be there so Sorl can resize it.
-OSCAR_MISSING_IMAGE_URL = 'image_not_found.jpg'
+OSCAR_MISSING_IMAGE_URL = 'static/image_not_found.jpg'
 OSCAR_UPLOAD_ROOT = '/tmp'
 
 # Address settings
