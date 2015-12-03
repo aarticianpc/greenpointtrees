@@ -22,6 +22,8 @@ urlpatterns = patterns(
         name='home'),   
     url(r'^product/$', oscarstoreview.main,
         name='product'),
+    url(r'^product-old/$', ProductView.main,
+        name='product'),
     url(r'^services/$', ServiceView.as_view(),
         name='services'),
 	url(r'^contact/$', ContactView.as_view(),

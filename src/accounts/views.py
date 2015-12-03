@@ -74,7 +74,8 @@ class LogoutView(generic.RedirectView):
 
 
 class ProductView(generic.TemplateView):
-    template_name = "product-oscar.html"
+    #fixed html version 
+    template_name = "product.html"
 
 class ServiceView(generic.TemplateView):
     template_name = "service.html"
