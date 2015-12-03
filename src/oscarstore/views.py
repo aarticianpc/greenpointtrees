@@ -7,5 +7,5 @@ Category = get_model('catalogue', 'Category')
 
 def main(request):
     products = Product.objects.all()
-    return render(request, 'product.html', {'products': products})
+    return render(request, 'product-oscar.html', {'products': products})
     pass
