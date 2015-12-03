@@ -22,7 +22,7 @@ urlpatterns = patterns(
         name='home'),   
     url(r'^product/$', oscarstoreview.main,
         name='product'),
-    url(r'^product-old/$', ProductView.main,
+    url(r'^product-old/$', ProductView.as_view(),
         name='product'),
     url(r'^services/$', ServiceView.as_view(),
         name='services'),
