@@ -24,11 +24,15 @@ Source = get_model('payment', 'Source')
 SourceType = get_model('payment', 'SourceType')
 
 def main(request):
+    selector = Selector()
+    strategy = selector.strategy(request=request, user=request.user)
     # print dir(ProductImage)
     products = Product.objects.all()
 
     product_rows = [[]];
     for product in products:
+        purchase_info = strategy.fetch_for_product(product=product)
+        product.price = purchase_info.price
         if(len(product_rows)==0 or len(product_rows[-1]) >=2):
             product_rows.append([])
         product_rows[-1].append(product);

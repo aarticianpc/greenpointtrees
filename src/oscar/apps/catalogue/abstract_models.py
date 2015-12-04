@@ -551,6 +551,7 @@ class AbstractProduct(models.Model):
             strategy.pricing_policy(child, stockrecord)
             for child, stockrecord in children_stock]
         raw_prices = sorted([getattr(price, prop) for price in prices])
+        
         return raw_prices[0] if raw_prices else None
 
     # Wrappers for child products

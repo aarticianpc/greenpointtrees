@@ -103,7 +103,13 @@
 
 
        <div class="product-body bg-product-white">
-        <h3>{{product.title}}</h3>
+        
+        <h3>{{product.title}} 
+        {% if product.price.excl_tax %}
+          {{product.price.excl_tax}}{{product.price.currency}}  
+        {% endif %}
+        
+        </h3>
         <div>
           {{product.description|safe}}
         </div>
