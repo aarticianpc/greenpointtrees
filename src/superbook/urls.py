@@ -23,7 +23,7 @@ urlpatterns = patterns(
     url(r'^product/$', oscarstoreview.main,
         name='product'),
     url(r'^product-old/$', ProductView.as_view(),
-        name='product'),
+        name='product-old'),
     url(r'^services/$', ServiceView.as_view(),
         name='services'),
 	url(r'^contact/$', ContactView.as_view(),
