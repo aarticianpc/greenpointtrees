@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load i18n %}
+{% load thumbnail %}
 
 {% load staticfiles %}
 {% load crispy_forms_tags %}
@@ -89,9 +91,18 @@
    
 
    <div class="col-md-6">
-   <div class="product-box bg-product-white wow bounceInLeft" data-wow-duration="2s">
-      <div class="img-section" style="background-image:url(/static/site/img/big-tree.png)" alt="tree"></div>       
-      <div class="product-body bg-product-white">
+     <div class="product-box bg-product-white wow bounceInLeft" data-wow-duration="2s">
+       {% with image=product.primary_image %}
+       {% thumbnail image.original "200x200" upscale=False as thumb %}
+       <div class="img-section" style="background-image:url({{ thumb.url }})" alt="tree">
+
+       </div>   
+       {% endthumbnail %}
+
+       {% endwith %}
+
+
+       <div class="product-body bg-product-white">
         <h3>{{product.title}}</h3>
         <div>
           {{product.description|safe}}
