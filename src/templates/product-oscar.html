@@ -83,30 +83,36 @@
      </div>
    </div>
  </div> 
- {% for product in products %}
- <div class="package col-md-6">
-  <div class="product-box wow bounceInLeft" data-wow-duration="2s">
-    <div class="img-section" style="background-image:url(/static/site/img/big-tree.png)" alt="tree"></div>       
-    <div class="product-body bg-product-white">
-      <h3>{{product.title}}</h3>
-      <div>
-        {{product.description|safe}}
+ {% for row in product_rows %}
+ <div class="row package">
+   {% for product in row %}
+   
+   
+   <div class="col-md-6">
+    <div class="product-box wow bounceInLeft" data-wow-duration="2s">
+      <div class="img-section" style="background-image:url(/static/site/img/big-tree.png)" alt="tree"></div>       
+      <div class="product-body bg-product-white">
+        <h3>{{product.title}}</h3>
+        <div>
+          {{product.description|safe}}
+        </div>
+
+        <div class="product-btn text-center">
+          <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket">
+            {% csrf_token %}
+            {# {% include "partials/form_fields.html" with form=basket_form %} #}
+            <input id="id_quantity" name="quantity" type="hidden" value="1">
+            <button type="submit" class="btn btn-primary btn-lg  btn-add-to-basket"  data-loading-text="Adding...">Ready for sell now <i class="fa fa-shopping-cart"></i></button>
+          </form>
+
+
+
+        </div> 
       </div>
-      
-      <div class="product-btn text-center">
-      <form id="add_to_basket_form" action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket">
-        {% csrf_token %}
-        {# {% include "partials/form_fields.html" with form=basket_form %} #}
-        <input id="id_quantity" name="quantity" type="hidden" value="1">
-        <button type="submit" class="btn btn-primary btn-lg  btn-add-to-basket"  data-loading-text="Adding...">Ready for sell now <i class="fa fa-shopping-cart"></i></button>
-    </form>
-
-
-        
-      </div> 
-    </div>
-  </div>  
-</div>   
+    </div>  
+  </div>   
+  {% endfor %}
+</div>
 {% endfor %}
 
 </div>
