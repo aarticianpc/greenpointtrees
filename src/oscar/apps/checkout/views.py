@@ -261,7 +261,6 @@ class ShippingMethodView(CheckoutSessionMixin, generic.FormView):
         # These pre-conditions can't easily be factored out into the normal
         # pre-conditions as they do more than run a test and then raise an
         # exception on failure.
-
         # Check that shipping is required at all
         if not request.basket.is_shipping_required():
             # No shipping required - we store a special code to indicate so.

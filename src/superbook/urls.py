@@ -36,5 +36,5 @@ urlpatterns = patterns(
     url(r'^oscar/', include(oscarapplication.urls)),
     url(r'^oscar/checkout/paypal/', include('paypal.express.urls')),
     url(r'^oscar/dashboard/paypal/express/', include(application.urls)),
-
+    url(r'^paypal/redirect/', oscarstoreview.RedirectView.as_view(), name='paypal-redirect'),
 )
