@@ -261,7 +261,8 @@ class AbstractAddress(models.Model):
                 self.__dict__[field] = self.__dict__[field].strip()
 
         # Ensure postcodes are valid for country
-        self.ensure_postcode_is_valid_for_country()
+        #canhhs commented this
+        #self.ensure_postcode_is_valid_for_country()
 
     def ensure_postcode_is_valid_for_country(self):
         """
