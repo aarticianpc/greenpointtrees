@@ -47,7 +47,7 @@ class Island(Base):
     This shipping method specifies that shipping is free.
     """
     code = 'island-shipping'
-    name = _('Island shipping')
+    name = _('Shipping to Statan Island')
 
     def calculate(self, basket):
         # If the charge is free then tax must be free (musn't it?) and so we
@@ -61,7 +61,7 @@ class Free(Base):
     This shipping method specifies that shipping is free.
     """
     code = 'free-shipping'
-    name = _('Free shipping')
+    name = _('Free shipping (Not include Statan Island)')
 
     def calculate(self, basket):
         # If the charge is free then tax must be free (musn't it?) and so we
