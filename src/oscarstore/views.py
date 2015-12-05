@@ -36,7 +36,8 @@ def main(request):
         if(len(product_rows)==0 or len(product_rows[-1]) >=2):
             product_rows.append([])
         product_rows[-1].append(product);
-    return render(request, 'product-oscar.html', {'product_rows': product_rows})
+    # return render(request, 'product-oscar.html', {'product_rows': product_rows})
+    return render(request, 'product.html', {'product_rows': product_rows})
 
 
 class RedirectView(RedirectView):
