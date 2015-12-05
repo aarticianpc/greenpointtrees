@@ -91,9 +91,9 @@
    
 
    <div class="col-md-6">
-     <div class="product-box bg-product-white wow bounceInLeft" data-wow-duration="2s">
+     <div class="product-box wow bounceInLeft" data-wow-duration="2s">
        {% with image=product.primary_image %}
-       {% thumbnail image.original "200x200" upscale=False as thumb %}
+       {% thumbnail image.original "200x200" format="PNG" upscale=False as thumb %}
        <div class="img-section" style="background-image:url({{ thumb.url }})" alt="tree">
 
        </div>   

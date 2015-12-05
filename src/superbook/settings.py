@@ -205,3 +205,5 @@ PAYPAL_SANDBOX_MODE=False
 PAYPAL_CURRENCY='USD'
 PAYPAL_HEADER_BACK_COLOR='000000'
 # PAYPAL_HEADER_IMG = 'http://www.greenpointtrees.nyc/static/site/img/home-banner.jpg'
+
+THUMBNAIL_FORMAT='PNG'
