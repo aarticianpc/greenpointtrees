@@ -331,14 +331,15 @@ class BasketAddView(FormView):
                          extra_tags='safe noicon')
 
         # Check for additional offer messages
-        apply_messages(self.request, offers_before)
+        # apply_messages(self.request, offers_before)
 
         # Send signal for basket addition
         self.add_signal.send(
             sender=self, product=form.product, user=self.request.user,
             request=self.request)
-
-        return super(BasketAddView, self).form_valid(form)
+        #canhhs
+        return redirect('basket:summary') 
+        # return super(BasketAddView, self).form_valid(form)
 
     def get_success_message(self, form):
         return render_to_string(
