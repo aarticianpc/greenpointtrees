@@ -254,7 +254,7 @@ class FixedRateTax(object):
     stockrecord.  The price_incl_tax is quantized to two decimal places.
     Rounding behaviour is Decimal's default
     """
-    rate = D('0')  # Subclass and specify the correct rate
+    rate = D('0.08875')  # Subclass and specify the correct rate
     exponent = D('0.01')  # Default to two decimal places
 
     def pricing_policy(self, product, stockrecord):
@@ -361,6 +361,7 @@ class UK(UseFirstStockRecord, StockRequired, FixedRateTax, Structured):
 
 
 class US(UseFirstStockRecord, StockRequired, DeferredTax, Structured):
+    rate = D('0.0875')
     """
     Sample strategy for the US.
 

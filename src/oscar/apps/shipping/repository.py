@@ -15,7 +15,7 @@ class Repository(object):
     # We default to just free shipping. Customise this class and override this
     # property to add your own shipping methods. This should be a list of
     # instantiated shipping methods.
-    methods = (shipping_methods.Free(),)
+    methods = (shipping_methods.Free(), shipping_methods.Island())
 
     # API
 

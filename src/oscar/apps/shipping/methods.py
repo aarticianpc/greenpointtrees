@@ -42,6 +42,19 @@ class Base(object):
         """
         return D('0.00')
 
+class Island(Base):
+    """
+    This shipping method specifies that shipping is free.
+    """
+    code = 'island-shipping'
+    name = _('Island shipping')
+
+    def calculate(self, basket):
+        # If the charge is free then tax must be free (musn't it?) and so we
+        # immediately set the tax to zero
+        return prices.Price(
+            currency=basket.currency,
+            excl_tax=D('25.00'), tax=D('0.00'))
 
 class Free(Base):
     """
