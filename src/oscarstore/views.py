@@ -90,16 +90,19 @@ class RedirectView(RedirectView):
 
     def _get_paypal_params(self, basket):
         shipping_address = self.get_shipping_address(basket)
-        # active_address_fields
-        return {
-            'PAYMENTREQUEST_0_SHIPTONAME' : shipping_address.name, 
-            'PAYMENTREQUEST_0_SHIPTOSTREET': shipping_address.line1,
-            'PAYMENTREQUEST_0_SHIPTOSTREET2': shipping_address.line2,
-            'PAYMENTREQUEST_0_SHIPTOCITY' : shipping_address.city, 
-            'PAYMENTREQUEST_0_SHIPTOSTATE' : shipping_address.state,
-            'PAYMENTREQUEST_0_SHIPTOZIP' : shipping_address.postcode, 
-            'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' :  shipping_address.country_id
-        }
+        if (shipping_address):
+            # active_address_fields
+            return {
+                'PAYMENTREQUEST_0_SHIPTONAME' : shipping_address.name, 
+                'PAYMENTREQUEST_0_SHIPTOSTREET': shipping_address.line1,
+                'PAYMENTREQUEST_0_SHIPTOSTREET2': shipping_address.line2,
+                'PAYMENTREQUEST_0_SHIPTOCITY' : shipping_address.city, 
+                'PAYMENTREQUEST_0_SHIPTOSTATE' : shipping_address.state,
+                'PAYMENTREQUEST_0_SHIPTOZIP' : shipping_address.postcode, 
+                'PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE' :  shipping_address.country_id
+            }
+        else:
+            return {}
         """
         Return any additional PayPal parameters
         """
