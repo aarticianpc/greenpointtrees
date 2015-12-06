@@ -144,7 +144,7 @@ class ShippingAddressForm(PhoneNumberMixin, AbstractAddressForm):
         fields = [
             'first_name', 'last_name',
             'line1','line4',
-            'state', 'postcode',
+            'state', 'postcode', 'country'
             'phone_number', 
         ]
 
