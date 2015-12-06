@@ -21,6 +21,8 @@ class ShippingAddressForm(PhoneNumberMixin, AbstractAddressForm):
     def adjust_country_field(self):
         countries = Country._default_manager.filter(
             is_shipping_country=True)
+        #canhhs add country as default
+        self.instance.country = countries[0]
 
         # No need to show country dropdown if there is only one option
         if len(countries) == 1:
