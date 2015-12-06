@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from django.conf import settings
 from oscar.core.loading import get_model, get_class
 from paypal.express.views import RedirectView
+from paypal.express.exceptions import (
+    EmptyBasketException, MissingShippingAddressException,
+    MissingShippingMethodException, InvalidBasket)
+
 
 from paypal.express.facade import (
     get_paypal_url, fetch_transaction_details, confirm_transaction)
@@ -73,10 +77,22 @@ class RedirectView(RedirectView):
             # Maik doubts that this code ever worked. Assigning
             # shipping method instances to Paypal params
             # isn't going to work, is it?
-            shipping_methods = Repository().get_shipping_methods(
-                user=user, basket=basket, request=self.request)
-            params['shipping_methods'] = shipping_methods
+            shipping_addr = self.get_shipping_address(basket)
+            if not shipping_addr:
+                raise MissingShippingAddressException()
 
+            shipping_method = self.get_shipping_method(
+                basket, shipping_addr)
+            if not shipping_method:
+                raise MissingShippingMethodException()
+
+            params['shipping_address'] = shipping_addr
+            params['shipping_method'] = shipping_method
+            print shipping_method, 'canhho'
+            # shipping_methods = Repository().get_shipping_methods(
+            #     user=user, basket=basket, request=self.request)
+            # params['shipping_methods'] = shipping_methods
+            params['shipping_methods'] = []
         if settings.DEBUG:
             # Determine the localserver's hostname to use when
             # in testing mode

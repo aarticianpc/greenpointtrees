@@ -202,7 +202,7 @@ PAYPAL_LANDING_PAGE = 'Billing'
 PAYPAL_BRAND_NAME = 'Green Point Trees'
 PAYPAL_SANDBOX_MODE=False
 PAYPAL_CURRENCY='USD'
-PAYPAL_HEADER_BACK_COLOR='000000'
+PAYPAL_LOCALE= 'US'
 # PAYPAL_HEADER_IMG = 'http://www.greenpointtrees.nyc/static/site/img/home-banner.jpg'
 
 THUMBNAIL_FORMAT='PNG'
