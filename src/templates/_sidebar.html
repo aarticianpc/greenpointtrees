@@ -8,6 +8,7 @@
     				HOME
   				</a>
   				<a href="{% url 'home' %}" class="list-group-item {% if active_link == 'home' %} active {% endif %}">PRODUCT</a>
+                <a href="{% url 'catalogue:index' %}" class="list-group-item {% if active_link == 'catalogue:index' %} active {% endif %}">ONLINE CHRISTMAS SHOP</a>
   				<a href="{% url 'services' %}" class="list-group-item {% if active_link == 'services' %} active {% endif %}">SERVICES</a>
   				<a href="{% url 'contact' %}" class="list-group-item {% if active_link == 'contact' %} active {% endif %}">CONTACT US</a>
   				<a href="{% url 'about' %}" class="list-group-item {% if active_link == 'about' %} active {% endif %}">ABOUT US</a>
