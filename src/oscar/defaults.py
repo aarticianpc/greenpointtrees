@@ -33,7 +33,7 @@ OSCAR_MISSING_IMAGE_URL = 'static/image_not_found.jpg'
 OSCAR_UPLOAD_ROOT = '/tmp'
 
 # Address settings
-OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1',
+OSCAR_REQUIRED_ADDRESS_FIELDS = ('first_name', 'last_name', 'line1', 'line4'
                                  
 
 

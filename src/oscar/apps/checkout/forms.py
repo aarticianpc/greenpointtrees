@@ -24,12 +24,8 @@ class ShippingAddressForm(PhoneNumberMixin, AbstractAddressForm):
     #canhhs
     def adjust_county_field(self):
             self.fields['state'].widget.attrs['readonly'] = True
-            self.instance.state = 'NY'
-            self.fields['state'].widget.attrs['value'] = 'New York'
-            self.fields['line4'].widget.attrs['readonly'] = True
-            self.fields['line4'].widget.attrs['value'] = 'New York'
-            self.instance.line4 = 'New York'
-
+            self.fields['state'].widget.attrs['value'] = 'NY'
+            
 
 
     def adjust_country_field(self):
