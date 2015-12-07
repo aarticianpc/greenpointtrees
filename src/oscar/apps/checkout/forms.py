@@ -17,6 +17,17 @@ class ShippingAddressForm(PhoneNumberMixin, AbstractAddressForm):
     def __init__(self, *args, **kwargs):
         super(ShippingAddressForm, self).__init__(*args, **kwargs)
         self.adjust_country_field()
+        self.adjust_county_field()
+
+    #canhhs
+    def adjust_county_field(self):
+            self.fields['state'].widget.attrs['readonly'] = True
+            # self.fields.pop('state', None)
+            self.instance.state = 'NY'
+            self.fields['line4'].widget.attrs['readonly'] = True
+            self.instance.line4 = 'New York'
+
+
 
     def adjust_country_field(self):
         countries = Country._default_manager.filter(
