@@ -8,6 +8,8 @@ from oscar.core.compat import get_user_model
 from oscar.core.loading import get_model
 from oscar.views.generic import PhoneNumberMixin
 
+
+
 User = get_user_model()
 Country = get_model('address', 'Country')
 
