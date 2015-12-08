@@ -441,6 +441,12 @@
                                 <th>{% trans "Charge (excl tax)" %}</th>
                                 <td>{{ order.shipping_excl_tax|currency:order.currency }}</td>
                             </tr>
+                            
+                            <tr>
+                                <th>{% trans "Shipping date" %}</th>
+                                <td>{{ order.shipping_date.date}}</td>
+                            </tr>
+
                             <tr>
                                 <th>{% trans "Address" %}</th>
                                 <td>
