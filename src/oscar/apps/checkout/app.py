@@ -16,6 +16,7 @@ class CheckoutApplication(Application):
     user_address_delete_view = get_class('checkout.views',
                                          'UserAddressDeleteView')
     shipping_method_view = get_class('checkout.views', 'ShippingMethodView')
+    shipping_date_view = get_class('checkout.views', 'ShippingDateView')
     payment_method_view = get_class('checkout.views', 'PaymentMethodView')
     payment_details_view = get_class('checkout.views', 'PaymentDetailsView')
     thankyou_view = get_class('checkout.views', 'ThankYouView')
@@ -23,7 +24,8 @@ class CheckoutApplication(Application):
     def get_urls(self):
         urls = [
             url(r'^$', self.index_view.as_view(), name='index'),
-
+            url(r'shipping-date/$',
+                self.shipping_date_view.as_view(), name='shipping-date'),
             # Shipping/user address views
             url(r'shipping-address/$',
                 self.shipping_address_view.as_view(), name='shipping-address'),

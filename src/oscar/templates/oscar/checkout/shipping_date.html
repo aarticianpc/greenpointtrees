@@ -1,0 +1,47 @@
+{% extends "checkout/checkout.html" %}
+
+{% load currency_filters %}
+{% load i18n %}
+{% load shipping_tags %}
+
+{% block title %}
+{% trans "Shipping date" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+{% include 'checkout/nav.html' with step=2 %}
+{% endblock %}
+
+{% block checkout_title %}{% trans "Shipping date" %}{% endblock %}
+
+{% block order_contents %}{% endblock %}
+{% block shipping_address %}{% endblock %}
+{% block payment_method %}{% endblock %}
+
+{% block shipping_date %}
+<form action="{% url 'checkout:shipping-date' %}" method="post" id="new_shipping_date" class="form form-horizontal">
+    {% csrf_token %}
+    <div class="well">
+        {% if shipping_date %}
+        {# <input type="hidden" name="shipping_date_id" value="{{ shipping_date.id }}" /> #}
+        
+        {% endif %}
+        <div class="form-group ">
+                    <label for="id_date" class="col-sm-4 control-label">
+                        Shipping Date
+                    </label>
+                <div class="col-sm-7">
+                        <input class="form-control" id="id_date" maxlength="255" name="date" type="text" value="{{shipping_date}}">
+                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Continuing...' %}">{% trans "Continue" %}</button>
+                {% trans "or" %} <a href="{% url 'basket:summary' %}">{% trans "return to basket" %}</a>
+
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock shipping_date %}

@@ -15,8 +15,8 @@ from oscar.core.loading import get_class, get_classes, get_model
 
 from . import signals
 
-ShippingAddressForm, ShippingMethodForm, GatewayForm \
-    = get_classes('checkout.forms', ['ShippingAddressForm', 'ShippingMethodForm', 'GatewayForm'])
+ShippingAddressForm, ShippingMethodForm, ShippingDateForm, GatewayForm \
+    = get_classes('checkout.forms', ['ShippingAddressForm', 'ShippingMethodForm', 'ShippingDateForm', 'GatewayForm'])
 OrderCreator = get_class('order.utils', 'OrderCreator')
 UserAddressForm = get_class('address.forms', 'UserAddressForm')
 Repository = get_class('shipping.repository', 'Repository')
@@ -30,10 +30,12 @@ OrderPlacementMixin = get_class('checkout.mixins', 'OrderPlacementMixin')
 CheckoutSessionMixin = get_class('checkout.session', 'CheckoutSessionMixin')
 Order = get_model('order', 'Order')
 ShippingAddress = get_model('order', 'ShippingAddress')
+ShippingDate = get_model('order', 'ShippingDate')
 CommunicationEvent = get_model('order', 'CommunicationEvent')
 PaymentEventType = get_model('order', 'PaymentEventType')
 PaymentEvent = get_model('order', 'PaymentEvent')
 UserAddress = get_model('address', 'UserAddress')
+
 Basket = get_model('basket', 'Basket')
 Email = get_model('customer', 'Email')
 Country = get_model('address', 'Country')
@@ -131,7 +133,8 @@ class ShippingAddressView(CheckoutSessionMixin, generic.FormView):
     """
     template_name = 'checkout/shipping_address.html'
     form_class = ShippingAddressForm
-    success_url = reverse_lazy('checkout:shipping-method')
+
+    success_url = reverse_lazy('checkout:shipping-date')
     pre_conditions = ['check_basket_is_not_empty',
                       'check_basket_is_valid',
                       'check_user_email_is_captured']
@@ -229,6 +232,45 @@ class UserAddressDeleteView(CheckoutSessionMixin, generic.DeleteView):
         messages.info(self.request, _("Address deleted"))
         return super(UserAddressDeleteView, self).get_success_url()
 
+
+
+class ShippingDateView(CheckoutSessionMixin, generic.FormView):
+    """
+    View for allowing a user to choose a shipping method.
+
+    Shipping methods are largely domain-specific and so this view
+    will commonly need to be subclassed and customised.
+
+    The default behaviour is to load all the available shipping methods
+    using the shipping Repository.  If there is only 1, then it is
+    automatically selected.  Otherwise, a page is rendered where
+    the user can choose the appropriate one.
+    """
+    template_name = 'checkout/shipping_date.html'
+    form_class = ShippingDateForm
+    pre_conditions = ['check_basket_is_not_empty',
+                      'check_basket_is_valid',
+                      'check_user_email_is_captured']
+    success_url = reverse_lazy('checkout:shipping-method')
+
+    def post(self, request, *args, **kwargs):
+        self.request.session['shipping_date'] = self.request.POST.get('date')
+        self.request.session.save()        
+        return redirect(self.get_success_url())
+
+    def form_valid(self, form):
+        # Store the address details in the session and redirect to next step
+        return super(ShippingDateView, self).form_valid(form)
+
+    def get(self, request, *args, **kwargs):
+        return super(ShippingDateView, self).get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        kwargs = super(ShippingDateView, self).get_context_data(**kwargs)
+        if 'shipping_date' in self.request.session:
+            kwargs['shipping_date'] = self.request.session['shipping_date']
+        print kwargs, 'canh kawsgs'
+        return kwargs
 
 # ===============
 # Shipping method
@@ -483,7 +525,15 @@ class PaymentDetailsView(OrderPlacementMixin, generic.TemplateView):
         """
         self.preview = True
         ctx = self.get_context_data(**kwargs)
+        print ctx, 'canh kiem tra'
+
         return self.render_to_response(ctx)
+
+    def get_context_data(self, **kwargs):
+        context = super(PaymentDetailsView, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['shipping_date'] =  self.request.session['shipping_date']
+        return context
 
     def render_payment_details(self, request, **kwargs):
         """
@@ -513,7 +563,7 @@ class PaymentDetailsView(OrderPlacementMixin, generic.TemplateView):
         except UserAddress.DoesNotExist:
             return None
 
-    def submit(self, user, basket, shipping_address, shipping_method,  # noqa (too complex (10))
+    def submit(self, user, basket, shipping_date, shipping_address, shipping_method,  # noqa (too complex (10))
                shipping_charge, billing_address, order_total,
                payment_kwargs=None, order_kwargs=None):
         """
@@ -625,7 +675,7 @@ class PaymentDetailsView(OrderPlacementMixin, generic.TemplateView):
                     order_number)
         try:
             return self.handle_order_placement(
-                order_number, user, basket, shipping_address, shipping_method,
+                order_number, user, basket, shipping_address, shipping_date, shipping_method,
                 shipping_charge, billing_address, order_total, **order_kwargs)
         except UnableToPlaceOrder as e:
             # It's possible that something will go wrong while trying to

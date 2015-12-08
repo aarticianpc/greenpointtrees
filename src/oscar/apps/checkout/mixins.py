@@ -97,9 +97,11 @@ class OrderPlacementMixin(CheckoutSessionMixin):
         return OrderNumberGenerator().order_number(basket)
 
     def handle_order_placement(self, order_number, user, basket,
-                               shipping_address, shipping_method,
+                               shipping_address, shipping_date, shipping_method,
                                shipping_charge, billing_address, order_total,
                                **kwargs):
+
+        print shipping_date
         """
         Write out the order models and return the appropriate HTTP response
 
@@ -109,13 +111,14 @@ class OrderPlacementMixin(CheckoutSessionMixin):
         """
         order = self.place_order(
             order_number=order_number, user=user, basket=basket,
-            shipping_address=shipping_address, shipping_method=shipping_method,
+            shipping_address=shipping_address, shipping_date=shipping_date,  
+            shipping_method=shipping_method,
             shipping_charge=shipping_charge, order_total=order_total,
             billing_address=billing_address, **kwargs)
         basket.submit()
         return self.handle_successful_order(order)
 
-    def place_order(self, order_number, user, basket, shipping_address,
+    def place_order(self, order_number, user, basket, shipping_date, shipping_address,
                     shipping_method, shipping_charge, order_total,
                     billing_address=None, **kwargs):
         """
@@ -140,6 +143,7 @@ class OrderPlacementMixin(CheckoutSessionMixin):
             order_number=order_number,
             basket=basket,
             shipping_address=shipping_address,
+            shipping_date=shipping_date,
             shipping_method=shipping_method,
             shipping_charge=shipping_charge,
             total=order_total,

@@ -75,6 +75,11 @@ class AbstractOrder(models.Model):
     shipping_method = models.CharField(
         _("Shipping method"), max_length=128, blank=True)
 
+    shipping_date = models.ForeignKey(
+        'order.ShippingDate', null=True, blank=True,
+        verbose_name=_("Shipping Date"),
+        on_delete=models.SET_NULL)
+
     # Identifies shipping code
     shipping_code = models.CharField(blank=True, max_length=128, default="")
 

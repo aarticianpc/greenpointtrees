@@ -135,6 +135,9 @@ class CheckoutSessionData(object):
         """
         self._set('shipping', 'method_code', '__free__')
 
+    def set_shipping_date(self, date):
+        self._set('shipping', 'date', date.id)
+
     def use_shipping_method(self, code):
         """
         Set shipping method code to session

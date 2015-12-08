@@ -19,7 +19,7 @@ CheckoutSessionData = get_class(
 ShippingAddress = get_model('order', 'ShippingAddress')
 BillingAddress = get_model('order', 'BillingAddress')
 UserAddress = get_model('address', 'UserAddress')
-
+ShippingDate = get_model('order', 'ShippingDate')
 
 class CheckoutSessionMixin(object):
     """
@@ -262,6 +262,12 @@ class CheckoutSessionMixin(object):
         """
         basket = kwargs.get('basket', self.request.basket)
         shipping_address = self.get_shipping_address(basket)
+        if 'shipping_date' in self.request.session:
+            shipping_date = ShippingDate(date = self.request.session['shipping_date'])
+            shipping_date.save()
+        else: 
+            shipping_date = None
+
         shipping_method = self.get_shipping_method(
             basket, shipping_address)
         billing_address = self.get_billing_address(shipping_address)
@@ -275,6 +281,7 @@ class CheckoutSessionMixin(object):
             'user': self.request.user,
             'basket': basket,
             'shipping_address': shipping_address,
+            'shipping_date': shipping_date,
             'shipping_method': shipping_method,
             'shipping_charge': shipping_charge,
             'billing_address': billing_address,

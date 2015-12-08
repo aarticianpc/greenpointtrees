@@ -1,8 +1,8 @@
 from oscar.apps.address.abstract_models import (
-    AbstractBillingAddress, AbstractShippingAddress)
+    AbstractBillingAddress, AbstractShippingAddress, AbstractShippingDate)
 from oscar.apps.order.abstract_models import *  # noqa
 from oscar.core.loading import is_model_registered
-
+from django.db import models
 __all__ = ['PaymentEventQuantity', 'ShippingEventQuantity']
 
 
@@ -32,6 +32,13 @@ if not is_model_registered('order', 'ShippingAddress'):
         pass
 
     __all__.append('ShippingAddress')
+
+if not is_model_registered('order', 'ShippingDate'):
+    class ShippingDate(AbstractShippingDate):
+        pass
+
+    __all__.append('ShippingAddress')
+
 
 
 if not is_model_registered('order', 'BillingAddress'):

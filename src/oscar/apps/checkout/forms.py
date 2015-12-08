@@ -13,7 +13,13 @@ from oscar.views.generic import PhoneNumberMixin
 User = get_user_model()
 Country = get_model('address', 'Country')
 
+class ShippingDateForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ShippingDateForm, self).__init__(*args, **kwargs)
 
+    class Meta:
+        model = get_model('order', 'shippingdate')
+        fields = '__all__' 
 class ShippingAddressForm(PhoneNumberMixin, AbstractAddressForm):
 
     def __init__(self, *args, **kwargs):

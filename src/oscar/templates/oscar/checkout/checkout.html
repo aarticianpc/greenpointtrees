@@ -56,10 +56,24 @@
                             <p>{{ shipping_address.notes|linebreaks }}</p>
                         {% endif %}
                     </div>
-                {% endif %}
+                    {% endif %}
 
-                {% if shipping_method %}
+                    {% if shipping_date %}
+                         <div class="well well-info">
+
+                        {% block shipping_date_actions %}
+                            <a href="{% url 'checkout:shipping-date' %}" class="pull-right">
+                                {% trans "Change" %}
+                            </a>
+                        {% endblock %}
+                        <h3>{% trans "Shipping date" %}: {{shipping_date}}</h3>
+                        
+                    </div>
+                    {% endif %}
+
+                    {% if shipping_method %}
                     <div class="well well-info">
+
                         {% block shipping_method_actions %}
                             <a href="{% url 'checkout:shipping-method' %}" class="pull-right">
                                 {% trans "Change" %}
@@ -155,6 +169,10 @@
         </div>
 
     {% endblock order_contents %}
+
+        {% block shipping_date %}
+    {% endblock shipping_date %}
+
 
     {% block shipping_method %}
     {% endblock shipping_method %}

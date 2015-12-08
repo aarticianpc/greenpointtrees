@@ -438,6 +438,14 @@ class AbstractCountry(models.Model):
         return u"%.03d" % int(self.iso_3166_1_numeric)
 
 
+class AbstractShippingDate(models.Model):
+    date = models.CharField(_("Shipping Date"), max_length=255, blank=True)
+    class Meta:
+        abstract = True
+        app_label = 'order'
+        verbose_name = _("Shipping date")
+        verbose_name_plural = _("Shipping dates")
+
 class AbstractShippingAddress(AbstractAddress):
     """
     A shipping address.
