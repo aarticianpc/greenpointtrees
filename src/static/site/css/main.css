@@ -388,4 +388,7 @@ a {
   #map-outer  { height: 650px }
 }
 
+
 /* --- */
+
+#ui-datepicker-div { z-index: 10001 !important; }

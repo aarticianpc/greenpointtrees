@@ -25,6 +25,10 @@
 
         {# Block where global CSS will go. #}
         {% block styles %}
+<style type="text/css">
+.ui-datepicker-div { z-index: 10001 !important; }
+    
+</style>
 
         {% endblock %}
         <link href="{% static 'site/css/main.css' %}" rel="stylesheet">
@@ -39,34 +43,44 @@
         {# Default to using Google analytics #}
         {% include "partials/google_analytics.html" %}
         {% endblock %}
-    </head>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-    <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
-        {# Main content goes in this 'layout' block #}
-        {% block layout %}{% endblock %}
+  </head>
 
-        {# Scripts loaded from a CDN. #}
-        {% block cdn_scripts %}
-        <!-- jQuery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery-1.9.1.min.js" %}"><\/script>')</script>
-        {% endblock %}
+  <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
+  {% block cdn_scripts %}
+    <!-- jQuery -->
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+     <script>
+          $(function() {
+            $( "#id_date" ).datepicker();
+        });
+      </script>
+    {% endblock %}
+    {# Main content goes in this 'layout' block #}
 
-        {# Local scripts #}
-        {% block scripts %}
-        {% endblock %}
+    {% block layout %}{% endblock %}
 
-        {# Additional JS scripts #}
-        {% block extrascripts %}{% endblock %}
+    {# Scripts loaded from a CDN. #}
 
-        {# Block for body onload functions #}
-        <script type="text/javascript">
-            $(function() {
-                {% block onbodyload %}{% endblock %}
-            });
-        </script>
 
-        {# Page meta-data - this is populated by the 'metadata' template context processor #}
-        <!-- {% trans "Version:" %} {{ version }} -->
-    </body>
-    </html>
+    {# Local scripts #}
+    {% block scripts %}
+    {% endblock %}
+
+    {# Additional JS scripts #}
+    {% block extrascripts %}{% endblock %}
+
+    {# Block for body onload functions #}
+    <script type="text/javascript">
+        $(function() {
+            {% block onbodyload %}{% endblock %}
+        });
+    </script>
+
+    {# Page meta-data - this is populated by the 'metadata' template context processor #}
+    <!-- {% trans "Version:" %} {{ version }} -->
+</body>
+</html>

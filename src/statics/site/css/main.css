@@ -389,3 +389,4 @@ a {
 }
 
 /* --- */
+#ui-datepicker-div { z-index: 10001 !important; }
